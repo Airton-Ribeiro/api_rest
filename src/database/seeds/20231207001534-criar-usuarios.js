@@ -19,3 +19,5 @@ module.exports = {
 
   async down(queryInterface, Sequelize) {},
 };
+// obs de seeds para branch secundaria
+g
