@@ -1,15 +1,15 @@
 import dotenv from 'dotenv';
-
+import { resolve } from 'path';
 dotenv.config();
 
-import './src/database';
+import './database';
 
 import express from 'express'; /* eslint import/no-extraneous-dependencies: ["error", {"peerDependencies": true}] */
-import homeRoutes from './src/routes/home';
-import userRoutes from './src/routes/user';
-import tokenRoutes from './src/routes/token';
-import alunoRoutes from './src/routes/aluno';
-import pictureRoutes from './src/routes/picture';
+import homeRoutes from './routes/home';
+import userRoutes from './routes/user';
+import tokenRoutes from './routes/token';
+import alunoRoutes from './routes/aluno';
+import pictureRoutes from './routes/picture';
 
 class App { // criando uma classe para exportar o necessario para o servidor
   constructor() {
@@ -25,6 +25,7 @@ class App { // criando uma classe para exportar o necessario para o servidor
      enviados pelo cliente através de formulários HTML */
     this.app.use(express.json());
     // Este middleware acima é responsável por analisar o corpo de solicitações com formato JSON.
+    this.app.use(express.static(resolve(__dirname, 'uploads')));
   }
 
   routes() {
