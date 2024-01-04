@@ -25,7 +25,7 @@ class App { // criando uma classe para exportar o necessario para o servidor
      enviados pelo cliente através de formulários HTML */
     this.app.use(_express2.default.json());
     // Este middleware acima é responsável por analisar o corpo de solicitações com formato JSON.
-    this.app.use(_express2.default.static(_path.resolve.call(void 0, __dirname, 'uploads')));
+    this.app.use(_express2.default.static(_path.resolve.call(void 0, __dirname, '..', 'uploads', 'images')));
   }
 
   routes() {
